@@ -14,6 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * {@link View} provider for spring applications.
+ * 
+ * @author Marvin Bruns
+ *
+ */
 @Component
 public class SpringViewProvider
 {
@@ -27,6 +33,9 @@ public class SpringViewProvider
 
 	private final Map<String, Set<String>> viewNameToBeanNamesMap = new ConcurrentHashMap<String, Set<String>>();
 
+	/**
+	 * Scan for views and build view -&gt; bean dictionary.
+	 */
 	@PostConstruct
 	void init()
 	{
@@ -70,6 +79,13 @@ public class SpringViewProvider
 		LOG.info("{} SpringViews found", count);
 	}
 
+	/**
+	 * Fetch view from application context.
+	 * 
+	 * @param viewName The view's name
+	 * @param beanName Name of the spring bean for the specific view.
+	 * @return The view or null
+	 */
 	private View getViewFromApplicationContext(String viewName, String beanName)
 	{
 		View view = null;
@@ -79,6 +95,12 @@ public class SpringViewProvider
 		return view;
 	}
 
+	/**
+	 * Test application context access and fetch view.
+	 * 
+	 * @param beanName Name of the spring bean for the specific view.
+	 * @return The view or null
+	 */
 	private View getViewFromApplicationContextAndCheckAccess(String beanName)
 	{
 		View view = null;
@@ -95,6 +117,12 @@ public class SpringViewProvider
 		return view;
 	}
 
+	/**
+	 * Get the view for a specific {@link View}'s name.
+	 * 
+	 * @param viewName The name of a view
+	 * @return The view or null, if no view exists for this name.
+	 */
 	public View getView(String viewName)
 	{
 		final Set<String> beanNames = viewNameToBeanNamesMap.get(viewName);

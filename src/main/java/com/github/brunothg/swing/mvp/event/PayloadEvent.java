@@ -2,6 +2,14 @@ package com.github.brunothg.swing.mvp.event;
 
 import com.github.brunothg.swing.mvp.event.Event.AbstractEvent;
 
+/**
+ * An generic event for delivering a payload.
+ * 
+ * @author Marvin Bruns
+ * @param <P> Type of the payload
+ * 
+ * 
+ */
 public class PayloadEvent<P> extends AbstractEvent
 {
 	private P payload;

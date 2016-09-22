@@ -11,6 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.brunothg.swing.mvp.event.EventBus;
 
+/**
+ * Base class for all presenters.
+ * 
+ * @author Marvin Bruns
+ *
+ * @param <V> The view this presenter is responsible for
+ */
 public class Presenter<V extends View>
 {
 	private static final Logger LOG = LoggerFactory.getLogger(Presenter.class);
@@ -24,18 +31,29 @@ public class Presenter<V extends View>
 	private String viewName = null;
 	private V view = null;
 
+	/**
+	 * Initialization of this spring bean. For example it registers this bean as event listener.
+	 */
 	@PostConstruct
 	protected void _init()
 	{
 		eventBus.subscribe(this);
 	}
 
+	/**
+	 * Cleaning up this spring bean. For example it unregisters this bean as event listener.
+	 */
 	@PreDestroy
 	private void _destroy()
 	{
 		eventBus.unsubscribe(this);
 	}
 
+	/**
+	 * Get the name of the view this presenter is responsible for.
+	 * 
+	 * @return The view name of this presenter.
+	 */
 	public final String getViewName()
 	{
 		if (viewName != null)
@@ -99,6 +117,11 @@ public class Presenter<V extends View>
 		return view;
 	}
 
+	/**
+	 * Get the {@link EventBus} of this presenter.
+	 * 
+	 * @return The {@link EventBus}
+	 */
 	protected EventBus getEventBus()
 	{
 		return eventBus;
