@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.brunothg</groupId>
 	<artifactId>swing-mvp</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.2</version>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>MVP for Spring desktop applications</description>
 	<url>https://github.com/brunothg/swing-mvp</url>
@@ -74,6 +74,12 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 	<reporting>

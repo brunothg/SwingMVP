@@ -1,4 +1,4 @@
-package com.github.brunothg.swing.mvp;
+package com.github.brunothg.swing.mvp.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -6,6 +6,9 @@ import java.lang.annotation.Target;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+
+import com.github.brunothg.swing.mvp.components.Presenter;
+import com.github.brunothg.swing.mvp.components.View;
 
 /**
  * Set the scope of {@link Presenter} and {@link View} to UI.

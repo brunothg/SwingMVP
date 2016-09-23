@@ -1,4 +1,4 @@
-package com.github.brunothg.swing.mvp;
+package com.github.brunothg.swing.mvp.components;
 
 import java.util.Map;
 import java.util.Set;
@@ -13,6 +13,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import com.github.brunothg.swing.mvp.annotation.SwingPresenter;
+import com.github.brunothg.swing.mvp.annotation.SwingView;
 
 /**
  * {@link View} provider for spring applications.
@@ -48,7 +51,7 @@ public class SpringViewProvider
 			if (View.class.isAssignableFrom(type))
 			{
 				SwingView annotation = applicationContext.findAnnotationOnBean(beanName, SwingView.class);
-				String viewName = MVP.getViewNameFromAnnotation(type, annotation);
+				String viewName = getViewNameFromAnnotation(type, annotation);
 				LOG.info("Found SpringView bean [{}] with name[{}] with view name [{}]", type.getCanonicalName(),
 					beanName, viewName);
 				if (applicationContext.isSingleton(beanName))
@@ -135,6 +138,43 @@ public class SpringViewProvider
 		}
 		LOG.warn("No view found with name [{}]", viewName);
 		return null;
+	}
+
+	/**
+	 * Get the view name for a {@link View} class with a specific {@link SwingView} annotation.
+	 * 
+	 * @param type The {@link View} class
+	 * @param annotation The view's {@link SwingView} annotation
+	 * @return The view name
+	 */
+	public static String getViewNameFromAnnotation(Class<?> type, SwingView annotation)
+	{
+		String name = annotation.name();
+		if (name.equals(SwingView.AUTO_CREATION_NAME))
+		{
+			name = type.getCanonicalName();
+		}
+
+		return name;
+	}
+
+	/**
+	 * Get the view name for a {@link Presenter} class with a specific {@link SwingPresenter}
+	 * annotation.
+	 * 
+	 * @param type The {@link View} class
+	 * @param annotation The view's {@link SwingPresenter} annotation
+	 * @return The view name
+	 */
+	public static String getViewNameFromAnnotation(Class<?> type, SwingPresenter annotation)
+	{
+		String name = annotation.viewName();
+		if (name.equals(SwingPresenter.AUTO_CREATION_NAME))
+		{
+			name = type.getCanonicalName();
+		}
+
+		return name;
 	}
 
 }

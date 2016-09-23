@@ -1,4 +1,4 @@
-package com.github.brunothg.swing.mvp;
+package com.github.brunothg.swing.mvp.components;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.github.brunothg.swing.mvp.annotation.SwingPresenter;
 import com.github.brunothg.swing.mvp.event.EventBus;
 
 /**
@@ -75,7 +76,7 @@ public class Presenter<V extends View>
 			{
 				LOG.warn("Could not get generic view for [{}]", this.getClass().getCanonicalName());
 			}
-			viewName = MVP.getViewNameFromAnnotation(viewType, sp);
+			viewName = SpringViewProvider.getViewNameFromAnnotation(viewType, sp);
 		}
 		else
 		{

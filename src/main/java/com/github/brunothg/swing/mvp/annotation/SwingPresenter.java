@@ -1,10 +1,12 @@
-package com.github.brunothg.swing.mvp;
+package com.github.brunothg.swing.mvp.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import org.springframework.stereotype.Component;
+
+import com.github.brunothg.swing.mvp.components.Presenter;
 
 /**
  * Mark a class as {@link Presenter}, so that MVP can calculate the presenter &lt;-&gt;

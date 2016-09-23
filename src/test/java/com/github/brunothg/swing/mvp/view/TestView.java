@@ -11,9 +11,9 @@ import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import com.github.brunothg.swing.mvp.SwingView;
-import com.github.brunothg.swing.mvp.UiScope;
-import com.github.brunothg.swing.mvp.View;
+import com.github.brunothg.swing.mvp.annotation.SwingView;
+import com.github.brunothg.swing.mvp.annotation.UiScope;
+import com.github.brunothg.swing.mvp.components.View;
 import com.github.brunothg.swing.mvp.event.EventBus;
 import com.github.brunothg.swing.mvp.event.PayloadEvent;
 

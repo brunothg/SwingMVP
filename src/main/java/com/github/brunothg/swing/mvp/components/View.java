@@ -1,4 +1,4 @@
-package com.github.brunothg.swing.mvp;
+package com.github.brunothg.swing.mvp.components;
 
 import com.github.brunothg.swing.mvp.event.EventBus;
 

@@ -1,8 +1,8 @@
 package com.github.brunothg.swing.mvp.presenter;
 
-import com.github.brunothg.swing.mvp.Presenter;
-import com.github.brunothg.swing.mvp.SwingPresenter;
-import com.github.brunothg.swing.mvp.UiScope;
+import com.github.brunothg.swing.mvp.annotation.SwingPresenter;
+import com.github.brunothg.swing.mvp.annotation.UiScope;
+import com.github.brunothg.swing.mvp.components.Presenter;
 import com.github.brunothg.swing.mvp.event.PayloadEvent;
 import com.github.brunothg.swing.mvp.view.TestView;
 import com.google.common.eventbus.Subscribe;
