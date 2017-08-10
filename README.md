@@ -1,2 +1,2 @@
 # swing-mvp
-MVP for Spring desctop applications 
+MVP for Spring desktop applications (Swing-GUI)
